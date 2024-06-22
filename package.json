@@ -3,12 +3,12 @@
 		"concurrently": "^8.2.2"
 	},
 	"scripts": {
-		"start-frontend": "cd frontend && npm run dev",
-		"start-backend": "cd backend && npm start",
+		"start-frontend": "cd frontend && npm run dev -- --host",
+		"start-backend": "cd backend && npm run dev",
 		"start": "concurrently -n \"FRONTEND,BACKEND\" -c \"bgBlue,bgYellow\" -p \"[{name}]\" \"npm run start-frontend\" \"npm run start-backend\"",
-		"install-frontend": "cd frontend && npm i",
-		"install-backend": "cd backend && npm i",
-		"installer": "npm i && npm run install-backend && npm run install-frontend",
+		"install-frontend": "cd frontend && npm i --verbose",
+		"install-backend": "cd backend && npm i --verbose",
+		"installer": "npm i && npm run install-frontend && npm run install-backend",
 		"prepare": "husky install && chmod ug+x .husky/*"
 	},
 	"devDependencies": {
